@@ -165,9 +165,3 @@ def login():
 
         return make_response(response_pattern, response_pattern['code'])
 
-
-if __name__ == "__main__":
-    # setting debug to True enables hot reload
-    # and also provides a debugger shell
-    # if you hit an error while running the server
-    app.run(debug = True, port=5000)
