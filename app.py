@@ -66,7 +66,7 @@ def signup():
     
     global response_pattern
     body = request.json
- 
+    
  
  
     try:
@@ -79,18 +79,22 @@ def signup():
         response_pattern['code']=400
         response_pattern["name"]="bad request"
         response_pattern["description"]="Key[s] are of invalid format"
+        
 
         
         return make_response(response_pattern, response_pattern['code'])
  
                
     try:
+        
+ 
         user_instance = create_user.CreateUser(
             body['first_name'],
         body['last_name'],
         body['email'],
         generate_password_hash(salt+body['password'])
       )
+        
         response , status_code =user_instance.runner()
         
         

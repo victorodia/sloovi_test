@@ -33,7 +33,7 @@ class CreateUser:
             if(re.fullmatch(self.regex, self.email)):
                 self.__checkUser_exist()
                 
-                
+            
                 return self.response_pattern , self.response_pattern['code']
         
             else:
@@ -53,7 +53,9 @@ class CreateUser:
             
     # def __validate_email():
     def __checkUser_exist(self):
+        
         try:
+            
             list_of_items = self.__db.list_collection_names()
         
             if self.email in list_of_items:
@@ -62,7 +64,9 @@ class CreateUser:
                 self.response_pattern["description"]="invalid email address, user already exist with email"
                 return self.response_pattern ,self.response_pattern['code']
             else:
+                
                 response =  self.__createuser()
+                
                 return response
         except:
             self.response_pattern['code']=500
@@ -80,8 +84,7 @@ class CreateUser:
                 
             collection.insert_one(
             {"user_info":{
-            "password":self.password,"first_name":self.firstName,"last_name":self.lastName,"Email":self.email,"Templates":{
-                        }
+            "password":self.password,"first_name":self.firstName,"last_name":self.lastName,"Email":self.email
             }
                 
             }
