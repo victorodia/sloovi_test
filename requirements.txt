@@ -1,0 +1,4 @@
+Flask==2.2.2
+grpcio
+pymongo[srv]==4.2.0
+Werkzeug==2.2.2
